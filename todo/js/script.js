@@ -2,6 +2,7 @@
 
 let btn = document.querySelector('.todo__button');
 let todoCnt = document.querySelector('.todo__box');
+let clearAll = document.querySelector('.clear-all');
 
 btn.addEventListener('click', () => {
   
@@ -12,7 +13,7 @@ btn.addEventListener('click', () => {
   ${myFeel.getHours()}:
   ${myFeel.getMinutes()}`);
   
-  let clearAll = document.querySelector('.clear-all');
+  
 
   let inputText = document.querySelector('.todo__input').value;
   
@@ -69,9 +70,6 @@ btn.addEventListener('click', () => {
     });
   });
   
-  clearAll.addEventListener('click', () => {
-    todoCnt.innerHTML = '';
-  });
 
   creatorList.appendChild(creatorDiv);
   creatorDiv.appendChild(creatorDivFlex);
@@ -89,8 +87,16 @@ btn.addEventListener('click', () => {
 
 let spoiler = document.querySelector('.my-tasks-box');
 let arrow = document.querySelector('.my-tasks__img');
-console.log(arrow)
+
+
   spoiler.addEventListener('click', () => {
     todoCnt.classList.toggle('disp-none');
     arrow.classList.toggle('rot');
   });
+
+  clearAll.addEventListener('click', () => {
+    todoCnt.innerHTML = '';
+    todoCnt.classList = 'disp-none my-tasks__text';
+    arrow.classList = 'rot my-tasks__img';
+  });
+  
